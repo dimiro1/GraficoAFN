@@ -1,5 +1,7 @@
 #include <GL/glut.h>
 #include <cstdlib>
+#include "Circulo.hpp"
+#include "Ponto.hpp"
 
 //Inserir
 //Estado estadoInicial
@@ -11,6 +13,9 @@ Desenha (void)
 {
   glClearColor (1, 1, 1, 0);
   glClear (GL_COLOR_BUFFER_BIT);
+  glColor3f (0, 0, 1);
+  Circulo *c = new Circulo (10, 100, 100);
+  c->desenha ();
   glFlush();
 }
 
@@ -27,7 +32,7 @@ main (int argc, char **argv)
 {
   glutInit (&argc, argv);
   glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
-  glutInitWindowSize (800, 600);
+  glutInitWindowSize (800, 800);
   glutCreateWindow ("GraficoAFD");
   Inicializa ();
   glutDisplayFunc (Desenha);
