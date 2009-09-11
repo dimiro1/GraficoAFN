@@ -1,0 +1,7 @@
+*.o
+.*.swp
+*~
+*.out
+*.old
+*.a
+GraficoAFD
