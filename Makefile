@@ -1,4 +1,4 @@
-OBJS = Ponto.o Transicao.o Circulo.o
+OBJS = Drawable.o Transition.o Circle.o Rectangle.o Color.o ApplicationResource.o
 
-GraficoAFD: $(OBJS)
-	$(CXX) -Wall $(OBJS) GraficoAFD.cpp -o GraficoAFD -lglut
+AFD: $(OBJS)
+	$(CXX) -Wall $(OBJS) AFD.cpp -o AFD -lglut
