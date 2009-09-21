@@ -1,7 +1,7 @@
 /*
  *   Copyright (C) 2009 by Claudemiro Alves Feitosa Neto
  *   <dimiro1@gmail.com>
- *   Modified: <2009-09-20 19:54:14 BRT>
+ *   Modified: <2009-09-20 21:16:42 BRT>
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -81,7 +81,8 @@ protected:
   Rect *rect;
 
 public:
-  Drawable (Rect *_rect) : rect (_rect) {}
+  bool isMoving;
+  Drawable (Rect *_rect) : rect (_rect), isMoving (false) {}
   Drawable (int _x, int _y, int _w, int _h);
   Drawable (int _x, int _y, int _w, int _h, Color *_color);
 
@@ -91,6 +92,7 @@ public:
 
   bool isInside (const int _x, const int _y) const;
   bool isInside (const Point *_point) const;
+  void setMoving (bool _state) { isMoving = _state; }
 };
 
 #endif /* _DRAWABLE_H_ */

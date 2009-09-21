@@ -1,7 +1,7 @@
 /*
  *   Copyright (C) 2009 by Claudemiro Alves Feitosa Neto
  *   <dimiro1@gmail.com>
- *   Modified: <2009-09-20 19:46:00 BRT>
+ *   Modified: <2009-09-20 21:12:29 BRT>
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -40,12 +40,12 @@ void Rect::move (const int _x, const int _y)
   y = _y - h/2;
 }
 
-Drawable::Drawable (int _x, int _y, int _w, int _h)
+Drawable::Drawable (int _x, int _y, int _w, int _h) : isMoving (false)
 { 
   rect = new Rect (_x, _y, _w, _h);
 }
 
-Drawable::Drawable (int _x, int _y, int _w, int _h, Color *_color)
+Drawable::Drawable (int _x, int _y, int _w, int _h, Color *_color) : isMoving (false)
 { 
   rect = new Rect (_x, _y, _w, _h, _color);
 }

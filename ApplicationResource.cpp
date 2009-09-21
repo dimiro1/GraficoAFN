@@ -1,7 +1,7 @@
 /*
  *   Copyright (C) 2009 by Claudemiro Alves Feitosa Neto
  *   <dimiro1@gmail.com>
- *   Modified: <2009-09-20 18:51:48 BRT>
+ *   Modified: <2009-09-20 21:23:57 BRT>
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -25,15 +25,16 @@ void ApplicationResource::getMotionMouseEvent (const int _x, const int _y)
   for (i = drawables.begin ();
        i != drawables.end (); i++)
     {
-      if ((*i)->isInside (_x, _y))
+      if ((*i)->isInside (_x, _y) && (*i)->isMoving)
         (*i)->move (_x, _y);
     }
 }
 
-void ApplicationResource::getClickMouseEvent (const int _button, const int _state, const int _x, const int _y)
+void ApplicationResource::getClickMouseEvent (const int _button, const int _state,
+                                              const int _x, const int _y)
 {
   std::vector<Drawable *>::const_iterator i;
-  if ( _state == GLUT_DOWN )
+  if (_state == GLUT_DOWN)
     {
       switch ( _button ) {
       case GLUT_LEFT_BUTTON:
@@ -41,11 +42,28 @@ void ApplicationResource::getClickMouseEvent (const int _button, const int _stat
              i != drawables.end (); i++)
           {
             if ((*i)->isInside (_x, _y))
-              (*i)->onClick ();
+              {
+                (*i)->setMoving (true);
+                (*i)->onClick ();
+              }
           }
       default:
         break;
       }
+    }
+  else if (_state == GLUT_UP)
+    {
+      switch (_button)
+      case GLUT_LEFT_BUTTON:
+        for (i = drawables.begin ();
+             i != drawables.end (); i++)
+          {
+            if ((*i)->isInside (_x, _y))
+              {
+                (*i)->setMoving (false);
+                (*i)->onClick ();
+              }
+          }
     }
 }
 
