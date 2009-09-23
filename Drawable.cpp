@@ -1,7 +1,7 @@
 /*
  *   Copyright (C) 2009 by Claudemiro Alves Feitosa Neto
  *   <dimiro1@gmail.com>
- *   Modified: <2009-09-20 21:12:29 BRT>
+ *   Modified: <2009-09-20 21:57:15 BRT>
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -19,19 +19,19 @@
 
 #include "Drawable.hpp"
 
-Point Point::operator+(const Point &op) const
+Point Point::operator+(const Point &_point) const
 {
-   return Point (x + op.x, y + op.y);
+   return Point (x + _point.x, y + _point.y);
 }
  
-Point Point::operator-(const Point &op) const
+Point Point::operator-(const Point &_point) const
 {
-   return Point (x - op.x, y - op.y);
+   return Point (x - _point.x, y - _point.y);
 }
  
-bool Point::operator==(const Point &op) const
+bool Point::operator==(const Point &_point) const
 {
-   return x == op.x && y == op.y;
+   return x == _point.x && y == _point.y;
 }
 
 void Rect::move (const int _x, const int _y)

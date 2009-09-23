@@ -1,7 +1,7 @@
 /*
  *   Copyright (C) 2009 by Claudemiro Alves Feitosa Neto
  *   <dimiro1@gmail.com>
- *   Modified: <2009-09-20 20:15:28 BRT>
+ *   Modified: <2009-09-21 00:24:10 BRT>
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -23,6 +23,7 @@
 #include "Color.hpp"
 #include "Circle.hpp"
 #include "Rectangle.hpp"
+#include "Line.hpp"
 
 ApplicationResource *resources;
 
@@ -45,7 +46,7 @@ void draw ()
 void initResources ()
 {
   glMatrixMode (GL_PROJECTION);
-  gluOrtho2D (0, 400, 400, 0);
+  gluOrtho2D (0, 600, 600, 0);
   glMatrixMode (GL_MODELVIEW);
 }
 
@@ -66,7 +67,7 @@ int main (int argc, char **argv)
 {
   glutInit (&argc, argv);
   glutInitDisplayMode (GLUT_DOUBLE | GLUT_RGB);
-  glutInitWindowSize (400, 400);
+  glutInitWindowSize (600, 600);
   glutCreateWindow ("AFD");
   initResources ();
   glutDisplayFunc (draw);
@@ -75,12 +76,14 @@ int main (int argc, char **argv)
 
   resources = new ApplicationResource ();
   
+  /* Drawable *line = new Line (100, 100, 200); */
   Drawable *r = new Rectangle (100, 100, 100, 100, new Red ());
   Drawable *r2 = new Rectangle (200, 200, 50, 50, new Green ());
   Drawable *c = new Circle (50, 300, 300, new Blue ());
   resources->addDrawable (r);
   resources->addDrawable (r2);
   resources->addDrawable (c);
+  /* resources->addDrawable (line); */
 
   glutMainLoop ();
   return EXIT_SUCCESS;

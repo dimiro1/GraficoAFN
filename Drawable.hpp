@@ -1,7 +1,7 @@
 /*
  *   Copyright (C) 2009 by Claudemiro Alves Feitosa Neto
  *   <dimiro1@gmail.com>
- *   Modified: <2009-09-20 21:16:42 BRT>
+ *   Modified: <2009-09-21 01:19:01 BRT>
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -40,9 +40,9 @@ public:
   int getX () const { return x; }
   int getY () const { return y; }
 
-  Point operator+(const Point &op) const;
-  Point operator-(const Point &op) const;
-  bool operator==(const Point &op) const;
+  Point operator+(const Point &_point) const;
+  Point operator-(const Point &_point) const;
+  bool operator==(const Point &_point) const;
 };
 
 struct Rect {
