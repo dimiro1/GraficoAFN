@@ -1,7 +1,7 @@
 /*
  *   Copyright (C) 2009 by Claudemiro Alves Feitosa Neto
  *   <dimiro1@gmail.com>
- *   Modified: <2009-09-20 19:53:49 BRT>
+ *   Modified: <2009-09-24 22:04:23 BRT>
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -19,9 +19,14 @@
 
 #include "Rectangle.hpp"
 
-void Rectangle::onClick ()
+void Rectangle::onClick (const int _x, const int _y)
 {
   std::cout << "Rectangle Clicked" << std::endl;
+}
+
+void Rectangle::onMove (const int _x, const int _y)
+{
+  move (_x, _y);
 }
 
 void Rectangle::draw ()

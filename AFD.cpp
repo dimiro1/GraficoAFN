@@ -1,7 +1,7 @@
 /*
  *   Copyright (C) 2009 by Claudemiro Alves Feitosa Neto
  *   <dimiro1@gmail.com>
- *   Modified: <2009-09-21 00:24:10 BRT>
+ *   Modified: <2009-09-24 23:07:36 BRT>
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -24,6 +24,8 @@
 #include "Circle.hpp"
 #include "Rectangle.hpp"
 #include "Line.hpp"
+#include "Menu.hpp"
+#include "Selection.hpp"
 
 ApplicationResource *resources;
 
@@ -77,11 +79,13 @@ int main (int argc, char **argv)
   resources = new ApplicationResource ();
   
   /* Drawable *line = new Line (100, 100, 200); */
-  Drawable *r = new Rectangle (100, 100, 100, 100, new Red ());
-  Drawable *r2 = new Rectangle (200, 200, 50, 50, new Green ());
+  /* Drawable *r = new Rectangle (100, 100, 100, 100, new Red ()); */
+  /* Drawable *r2 = new Rectangle (200, 200, 50, 50, new Green ()); */
   Drawable *c = new Circle (50, 300, 300, new Blue ());
-  resources->addDrawable (r);
-  resources->addDrawable (r2);
+  Drawable *menu = new Menu (0, 0, 600, 100);
+  resources->addDrawable (menu);
+  /* resources->addDrawable (r); */
+  /* resources->addDrawable (r2); */
   resources->addDrawable (c);
   /* resources->addDrawable (line); */
 

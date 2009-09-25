@@ -1,7 +1,7 @@
 /*
  *   Copyright (C) 2009 by Claudemiro Alves Feitosa Neto
  *   <dimiro1@gmail.com>
- *   Modified: <2009-09-21 01:19:01 BRT>
+ *   Modified: <2009-09-24 22:16:28 BRT>
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -26,7 +26,7 @@
 
 class Event {
 public:
-  virtual void onClick () = 0;
+  virtual void onClick (const int _x, const int _y) = 0;
 };
 
 struct Point {
@@ -66,6 +66,11 @@ public:
   int getW () const { return w; }
   int getH () const { return h; }
 
+  void setX (const int _x) { x = _x; }
+  void setY (const int _y) { y = _y; }
+  void setW (const int _w) { w = _w; }
+  void setH (const int _h) { h = _h; }
+
   Point topRight () const { return Point (x + w, y); }
   Point topLeft () const { return Point (x, y); }
   Point bottomRight () const { return Point (x + w, y + h); }
@@ -77,17 +82,17 @@ public:
 };
 
 class Drawable : public Event {
-protected:
-  Rect *rect;
-
 public:
+  Rect *rect;
   bool isMoving;
   Drawable (Rect *_rect) : rect (_rect), isMoving (false) {}
   Drawable (int _x, int _y, int _w, int _h);
   Drawable (int _x, int _y, int _w, int _h, Color *_color);
 
   virtual void draw () = 0;
-  virtual void onClick () = 0;
+  virtual void onClick (const int _x, const int _y) = 0;
+  virtual void onMove (const int _x, const int _y) = 0;
+
   void move (const int _x, const int _y);
 
   bool isInside (const int _x, const int _y) const;

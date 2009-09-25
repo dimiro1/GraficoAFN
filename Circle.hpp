@@ -1,7 +1,7 @@
 /*
  *   Copyright (C) 2009 by Claudemiro Alves Feitosa Neto
  *   <dimiro1@gmail.com>
- *   Modified: <2009-09-20 19:51:18 BRT>
+ *   Modified: <2009-09-24 22:04:03 BRT>
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -41,7 +41,8 @@ public:
 
 
   void draw ();
-  void onClick ();
+  void onClick (const int _x, const int _y);
+  void onMove (const int _x, const int _y);
 };
 
 #endif /* _CIRCLE_H_ */

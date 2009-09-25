@@ -1,7 +1,7 @@
 /*
  *   Copyright (C) 2009 by Claudemiro Alves Feitosa Neto
  *   <dimiro1@gmail.com>
- *   Modified: <2009-09-20 19:53:37 BRT>
+ *   Modified: <2009-09-24 22:04:11 BRT>
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -19,9 +19,14 @@
 
 #include "Circle.hpp"
 
-void Circle::onClick ()
+void Circle::onClick (const int _x, const int _y)
 {
   std::cout << "Circle Clicked" << std::endl;
+}
+
+void Circle::onMove (const int _x, const int _y)
+{
+  move (_x, _y);
 }
 
 void Circle::draw ()

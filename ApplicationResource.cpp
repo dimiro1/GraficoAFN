@@ -1,7 +1,7 @@
 /*
  *   Copyright (C) 2009 by Claudemiro Alves Feitosa Neto
  *   <dimiro1@gmail.com>
- *   Modified: <2009-09-20 21:23:57 BRT>
+ *   Modified: <2009-09-24 23:11:27 BRT>
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -26,7 +26,7 @@ void ApplicationResource::getMotionMouseEvent (const int _x, const int _y)
        i != drawables.end (); i++)
     {
       if ((*i)->isInside (_x, _y) && (*i)->isMoving)
-        (*i)->move (_x, _y);
+        (*i)->onMove (_x, _y);
     }
 }
 
@@ -44,7 +44,11 @@ void ApplicationResource::getClickMouseEvent (const int _button, const int _stat
             if ((*i)->isInside (_x, _y))
               {
                 (*i)->setMoving (true);
-                (*i)->onClick ();
+                (*i)->onClick (_x, _y);
+              }
+            if (shape == 1)
+              {
+                /* addDrawable (c); */
               }
           }
       default:
@@ -61,7 +65,7 @@ void ApplicationResource::getClickMouseEvent (const int _button, const int _stat
             if ((*i)->isInside (_x, _y))
               {
                 (*i)->setMoving (false);
-                (*i)->onClick ();
+                (*i)->onClick (_x, _y);
               }
           }
     }

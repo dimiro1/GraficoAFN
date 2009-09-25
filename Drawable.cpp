@@ -1,7 +1,7 @@
 /*
  *   Copyright (C) 2009 by Claudemiro Alves Feitosa Neto
  *   <dimiro1@gmail.com>
- *   Modified: <2009-09-20 21:57:15 BRT>
+ *   Modified: <2009-09-24 21:27:43 BRT>
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -77,3 +77,4 @@ void Drawable::move (const int _x, const int _y)
   /* std::cout << "x: " << _x << " y: " << _y << std::endl; */
   rect->move (_x, _y);
 }
+

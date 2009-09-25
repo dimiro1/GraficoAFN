@@ -1,7 +1,7 @@
 /*
  *   Copyright (C) 2009 by Claudemiro Alves Feitosa Neto
  *   <dimiro1@gmail.com>
- *   Modified: <2009-09-20 19:02:28 BRT>
+ *   Modified: <2009-09-24 23:07:46 BRT>
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -21,10 +21,16 @@
 #define _APPLICATION_RESOURCE_H_
 
 #include "Drawable.hpp"
+#include "Circle.hpp"
 #include <vector>
+#include <iostream>
+
 
 class ApplicationResource {
 public:
+  int shape;
+  ApplicationResource () : shape (1) {}
+
   std::vector<Drawable *> drawables;
   void getMotionMouseEvent (const int _x, const int _y);
   void getClickMouseEvent (const int _button, const int _state, const int _x, const int _y);
